@@ -7,12 +7,16 @@ import { CareCardComponent } from './care-card/care-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { CareListComponent } from './care-list/care-list.component';
+import { OptionsBarComponent } from './options-bar/options-bar.component';
+import { NewParentDialog } from './dialogs/new-parent-dialog/new-parent-dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     CareCardComponent,
-    CareListComponent
+    CareListComponent,
+    OptionsBarComponent,
+    NewParentDialog
   ],
   imports: [
     BrowserModule,
