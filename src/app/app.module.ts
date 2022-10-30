@@ -9,6 +9,11 @@ import { MatCardModule } from '@angular/material/card';
 import { CareListComponent } from './care-list/care-list.component';
 import { OptionsBarComponent } from './options-bar/options-bar.component';
 import { NewParentDialog } from './dialogs/new-parent-dialog/new-parent-dialog';
+import {
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -16,15 +21,20 @@ import { NewParentDialog } from './dialogs/new-parent-dialog/new-parent-dialog';
     CareCardComponent,
     CareListComponent,
     OptionsBarComponent,
-    NewParentDialog
+    NewParentDialog,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule
-    ],
-  providers: [],
-  bootstrap: [AppComponent]
+    MatCardModule,
+    MatDialogModule,
+  ],
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
