@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CareCardComponent } from './care-card/care-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { CareListComponent } from './care-list/care-list.component';
 import { OptionsBarComponent } from './options-bar/options-bar.component';
 import { NewParentDialog } from './dialogs/new-parent-dialog/new-parent-dialog';

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'
 import { NewParentDialog } from '../dialogs/new-parent-dialog/new-parent-dialog';
 
@@ -7,22 +7,18 @@ import { NewParentDialog } from '../dialogs/new-parent-dialog/new-parent-dialog'
   templateUrl: './options-bar.component.html',
   styleUrls: ['./options-bar.component.scss']
 })
-export class OptionsBarComponent implements OnInit {
+export class OptionsBarComponent {
 
-  constructor( public dialog: MatDialog) { }
+constructor() { }
 
-  ngOnInit(): void {
-  }
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(NewParentDialog, {
+  //     data: {},
+  //   });
 
-  openDialog() {
-    const dialogRef = this.dialog.open(NewParentDialog, {
-      width: '250px',
-      data: {},
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //   });
+  // }
 
 }

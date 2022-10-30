@@ -7,7 +7,13 @@ import { ICare } from '../models/care.model';
   styleUrls: ['./care-card.component.scss']
 })
 export class CareCardComponent implements OnInit {
-  @Input() care: ICare;
+  @Input() care: ICare = {
+    parent: 'Maria',
+    carer: 'Lucía',
+    date: new Date(),
+    term: 30,
+    description: 'Free night'
+  }
 
   constructor() { }
 

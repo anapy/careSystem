@@ -1,3 +1,11 @@
-<div class="care-card">
-  <span>{{care.name}}</span>
-</div>
+<mat-card class="care-card">
+  <div >
+    <div class="care-data">
+      <p>Padre/Madre: {{care.parent}}</p>
+      <p>Cuidador/a: {{care.carer}}</p>
+      <p>Fecha del servicio: {{care.date | date}}</p>
+      <p>Duration: {{care.term}}</p>
+    </div>
+      <p>Descripción/Observaciones {{care.description}}</p>
+  </div>
+</mat-card>
