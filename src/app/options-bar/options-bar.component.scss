@@ -1,4 +1,13 @@
-:host {
-  height: 30px;
-  background-color: greenyellow;
+.optionsBar {
+  display: flex;
+  background-color: #0D5D56;
+  justify-content: space-between;
+  color: white;
+  padding: 20px;
+  height: 75px;
+}
+
+.ob-button-parent {
+  margin: 20px;
+
 }
