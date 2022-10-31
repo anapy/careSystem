@@ -1,0 +1,19 @@
+.npd-container {
+  width: 600px;
+  height: 400px;
+  position: relative;
+}
+
+.npd-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.npd-input {
+  max-width: 300px;
+}
+
+.npd-dialog-actions {
+  position: absolute;
+  bottom: 0px;
+}

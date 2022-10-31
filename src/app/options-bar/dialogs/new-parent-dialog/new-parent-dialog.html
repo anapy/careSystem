@@ -1,0 +1,37 @@
+<div class="npd-container">
+  <p mat-dialog-title>Añadir nuevo padre/madre</p>
+  <mat-dialog-content class="npd-form-container">
+    <mat-form-field appearance="fill">
+      <mat-label aria-required="true">Nombre</mat-label>
+      <input
+        [(ngModel)]="parentInfo.name"
+        [value]="parentInfo.name"
+        type="text"
+        matInput
+        required="true"
+        (keyup)="validateValue(parentInfo.name)"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre hijo/a</mat-label>
+      <input
+        type="text"
+        [(ngModel)]="parentInfo.childrenName"
+        matInput
+        name="childrenName"
+      />
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <div mat-dialog-actions class="npd-dialog-actions">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button
+      mat-button
+      mat-dialog-close
+      [disabled]="!isDataValid"
+      (click)="saveParent()"
+    >
+      Guardar
+    </button>
+  </div>
+</div>
