@@ -8,12 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { CareListComponent } from './care-list/care-list.component';
 import { OptionsBarComponent } from './options-bar/options-bar.component';
-import { NewParentDialog } from './dialogs/new-parent-dialog/new-parent-dialog';
-import {
-  MatDialogModule,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { NewParentDialog } from './options-bar/dialogs/new-parent-dialog/new-parent-dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,13 @@ import {
     BrowserAnimationsModule,
     MatCardModule,
     MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatToolbarModule,
   ],
-  providers: [
-    { provide: MatDialogRef, useValue: {} },
-
-    { provide: MAT_DIALOG_DATA, useValue: {} },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
