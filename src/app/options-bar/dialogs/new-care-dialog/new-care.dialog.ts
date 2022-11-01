@@ -16,8 +16,7 @@ export class NewCareDialog {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
-  @Input() parentsList: Array<IParent> = this.data;
-
+  parentsList: Array<IParent> = this.data;
   careInfo: any = {
     careTakerId: '',
     careTakerName: '',
@@ -32,12 +31,7 @@ export class NewCareDialog {
   isDataValid: boolean = false;
   repeatCareParent: boolean = false;
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
   public cancelProcess(): void {
-    console.log('Cancelado estoy')
     this.dialogRef.close(null);
   }
 
