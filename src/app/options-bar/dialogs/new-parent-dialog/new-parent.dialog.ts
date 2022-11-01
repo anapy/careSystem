@@ -4,9 +4,9 @@ import * as check from 'check-types';
 import { IParent } from 'src/app/models/parent.model';
 
 @Component({
-  selector: 'app-new-parent-dialog',
-  templateUrl: './new-parent-dialog.html',
-  styleUrls: ['./new-parent-dialog.scss'],
+  selector: 'app-new-parent.dialog',
+  templateUrl: './new-parent.dialog.html',
+  styleUrls: ['./new-parent.dialog.scss'],
 })
 export class NewParentDialog {
   constructor(
