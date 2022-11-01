@@ -1,4 +1,4 @@
 <div>
-  <app-options-bar></app-options-bar>
-  <app-care-list></app-care-list>
+  <app-options-bar (createNewCare)="refreshCareList()"></app-options-bar>
+  <app-care-list [careList]="careList"></app-care-list>
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IParent } from 'src/app/models/parent.model';
@@ -22,6 +22,7 @@ export class OptionsBarComponent {
     private snackBar: MatSnackBar
   ) {}
 
+  @Output() createNewCare: EventEmitter<void> = new EventEmitter<void>();
   parentsList: Array<IParent>;
 
   ngOnInit(): void {
@@ -70,6 +71,8 @@ export class OptionsBarComponent {
       await this.careService.createCare(careInfo);
       this.openSnackBar('Creado correctamente', 'Close');
       this.fetchData();
+      this.createNewCare.emit();
+
     } catch {
       this.openSnackBar('Error en la creación', 'Close');
     }

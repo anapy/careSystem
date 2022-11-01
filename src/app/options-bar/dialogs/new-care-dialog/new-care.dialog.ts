@@ -9,7 +9,7 @@ import { IParent } from 'src/app/models/parent.model';
   templateUrl: './new-care.dialog.html',
   styleUrls: ['./new-care.dialog.scss'],
 })
-  
+
 export class NewCareDialog {
   constructor(
     public dialogRef: MatDialogRef<NewCareDialog>,
