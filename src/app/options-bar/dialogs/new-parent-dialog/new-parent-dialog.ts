@@ -20,8 +20,12 @@ export class NewParentDialog {
 
   isDataValid: boolean = false;
 
-  async saveParent(): Promise<void> {
+  public saveParent(): void {
     this.dialogRef.close(this.parentInfo);
+  }
+
+  public cancelProcess(): void {
+    this.dialogRef.close(null);
   }
 
   public validateValue(newValue): void {
