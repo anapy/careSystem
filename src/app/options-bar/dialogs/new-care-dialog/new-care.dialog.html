@@ -1,0 +1,46 @@
+<div *ngIf="parentsList" class="ncd-container">
+  <p mat-dialog-title>Añadir nuevo cuidado</p>
+    <mat-dialog-content class="ncd-form-container">
+      <mat-form-field appearance="fill">
+        <mat-label aria-required="true">Nombre Padre/Madre</mat-label>
+        <mat-select [(ngModel)]="careInfo.parent" (selectionChange)="validateForm()" #nameControl="ngModel">
+          <mat-option *ngFor="let parent of parentsList" [value]="parent">
+            {{parent.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label aria-required="true">Nombre cuidador/a</mat-label>
+        <mat-select [(ngModel)]="careInfo.care" (selectionChange)="validateForm()">
+          <mat-option *ngFor="let parent of parentsList" [value]="parent">
+            {{parent.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="careInfo.startDate" [value]="careInfo.startDate" (ngModelChange)="validateForm()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label aria-required="true">Duración</mat-label>
+        <input matInput [(ngModel)]="careInfo.duration" [value]="careInfo.duration" type="number" required="true" (change)="validateForm()"/>
+      </mat-form-field>
+        <mat-form-field>
+        <mat-label aria-required="true">Observaciones</mat-label>
+        <input matInput [(ngModel)]="careInfo.observations" [value]="careInfo.observations" type="text" required="true" (change)="validateForm()"/>
+      </mat-form-field>
+  </mat-dialog-content>
+  <div mat-dialog-actions class="ncd-dialog-actions">
+    <button mat-raised-button (click)="cancelProcess()">Cancelar</button>
+    <button
+      mat-dialog-close
+      mat-raised-button
+      (click)="saveCare()"
+      [disabled]="!isDataValid"
+    >
+      Guardar
+    </button>
+  </div>
+</div>

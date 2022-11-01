@@ -3,8 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IParent } from 'src/app/models/parent.model';
 import { ParentService } from 'src/app/services/parent.service';
-import { NewCareDialog } from './dialogs/new-care-dialog/new-care-dialog';
-import { NewParentDialog } from './dialogs/new-parent-dialog/new-parent-dialog';
+import { NewCareDialog } from './dialogs/new-care-dialog/new-care.dialog';
+import { NewParentDialog } from './dialogs/new-parent-dialog/new-parent.dialog';
 import * as check from 'check-types';
 import { CareService } from 'src/app/services/care.service';
 import { ICare } from 'src/app/models/care.model';
@@ -30,7 +30,6 @@ export class OptionsBarComponent {
 
   async fetchData() {
     this.parentsList = await this.parentService.getParents();
-    console.log(this.parentsList);
   }
   openNewParentDialog() {
     const dialogRef = this.dialog.open(NewParentDialog, {
@@ -63,7 +62,6 @@ export class OptionsBarComponent {
       if (check.assigned(careInfo) && !check.emptyObject(careInfo)) {
         this.createCare(careInfo);
       }
-      console.log('The dialog was closed');
     });
   }
 
