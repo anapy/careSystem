@@ -4,24 +4,12 @@ import { ICare } from '../models/care.model';
 @Component({
   selector: 'app-care-card',
   templateUrl: './care-card.component.html',
-  styleUrls: ['./care-card.component.scss']
+  styleUrls: ['./care-card.component.scss'],
 })
 export class CareCardComponent implements OnInit {
-  @Input() care: ICare = {
-    parent: 'Maria',
-    carer: 'Lucía',
-    date: new Date(),
-    term: 30,
-    description: 'Free night'
-  }
+  @Input() care: ICare;
 
-  constructor() { }
+  constructor() {}
 
-
-  ngOnInit(): void {
-
-  }
-
+  ngOnInit(): void {}
 }
-
-

@@ -1,6 +1,10 @@
-.care-card {
-  max-width: 300px;
+.cc-container {
   padding: 15px;
-  border-radius: 6px;
   margin: 10px;
+  background-color: #edf6f9;
+}
+
+.cc-column-data {
+  display: flex;
+  justify-content: space-between;
 }

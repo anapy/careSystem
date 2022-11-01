@@ -1,11 +1,13 @@
-<mat-card class="care-card">
-  <div >
-    <div class="care-data">
-      <p>Padre/Madre: {{care.parent}}</p>
-      <p>Cuidador/a: {{care.carer}}</p>
-      <p>Fecha del servicio: {{care.date | date}}</p>
-      <p>Duration: {{care.term}}</p>
+<mat-card class="cc-container">
+  <div class="cc-column-data">
+    <div class="cc-data">
+      <p>Padre/Madre: {{ care.parentName }}</p>
+      <p>Cuidador/a: {{ care.careTakerName }}</p>
     </div>
-      <p>Descripción/Observaciones {{care.description}}</p>
+    <div class="cc-data">
+      <p>Fecha del servicio: {{ care.startDate | date }}</p>
+      <p>Duration: {{ care.duration }}</p>
+    </div>
   </div>
+  <p>Descripción/Observaciones: {{ care.observations }}</p>
 </mat-card>
