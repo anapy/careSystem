@@ -1,6 +1,6 @@
 .optionsBar {
   display: flex;
-  background-color: #0D5D56;
+  background-color: #fca311;
   justify-content: space-between;
   color: white;
   padding: 20px;
@@ -9,5 +9,11 @@
 
 .ob-button-parent {
   margin: 20px;
+  background-color: #14213d;
+  color: white;
+}
 
+.ob-button-care {
+  background-color: #14213d;
+  color: white;
 }

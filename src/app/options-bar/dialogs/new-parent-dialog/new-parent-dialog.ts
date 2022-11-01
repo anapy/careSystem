@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as check from 'check-types';
+import { IParent } from 'src/app/models/parent.model';
 
 @Component({
   selector: 'app-new-parent-dialog',
@@ -13,14 +14,13 @@ export class NewParentDialog {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
-  parentInfo: any = {
+  parentInfo: IParent = {
     name: '',
-    childrenName: '',
   };
 
   isDataValid: boolean = false;
 
-  saveParent(): void {
+  async saveParent(): Promise<void> {
     this.dialogRef.close(this.parentInfo);
   }
 

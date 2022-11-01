@@ -12,22 +12,13 @@
         (keyup)="validateValue(parentInfo.name)"
       />
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Nombre hijo/a</mat-label>
-      <input
-        type="text"
-        [(ngModel)]="parentInfo.childrenName"
-        matInput
-        name="childrenName"
-      />
-    </mat-form-field>
   </mat-dialog-content>
 
   <div mat-dialog-actions class="npd-dialog-actions">
-    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
     <button
-      mat-button
       mat-dialog-close
+      mat-raised-button
       [disabled]="!isDataValid"
       (click)="saveParent()"
     >

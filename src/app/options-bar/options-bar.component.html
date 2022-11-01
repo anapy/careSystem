@@ -1,7 +1,19 @@
-<div (click)="openDialog()">
-  hola
-  <ul class="optionsBar">
-    <li><a href="#">Añadir persona o persono</a></li>
-    <li><a href="#">Añadir cuidado</a></li>
-  </ul>
-</div>
+<mat-toolbar class="optionsBar" color="basic">
+  <span>Aplicación cuidados</span>
+  <div class="ob-actions-container">
+    <button
+      class="ob-button-parent"
+      mat-raised-button
+      (click)="openNewParentDialog()"
+    >
+      Añadir persona
+    </button>
+    <button
+      class="ob-button-care"
+      mat-raised-button
+      (click)="openNewCareDialog()"
+    >
+      Añadir cuidado
+    </button>
+  </div>
+</mat-toolbar>
