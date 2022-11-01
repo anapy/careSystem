@@ -1,1 +1,15 @@
-<p>new-care-dialog works!</p>
+<div class="npd-container">
+  <p mat-dialog-title>Añadir nuevo cuidado</p>
+
+  <div mat-dialog-actions class="npd-dialog-actions">
+    <button mat-raised-button (click)="cancelProcess()">Cancelar</button>
+    <button
+      mat-dialog-close
+      mat-raised-button
+      [disabled]="!isDataValid"
+      (click)="saveCare()"
+    >
+      Guardar
+    </button>
+  </div>
+</div>

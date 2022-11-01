@@ -1,7 +1,10 @@
 export interface ICare {
-  parent: string,
-  carer: string,
-  date: Date,
-  term: number,
-  description: string
+  id?: Date;
+  careTakerId: string;
+  careTakerName: string;
+  duration: number;
+  observations: string;
+  parentId: string;
+  parentName: string;
+  startDate: string;
 }

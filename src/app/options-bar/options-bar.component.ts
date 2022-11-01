@@ -6,6 +6,8 @@ import { ParentService } from 'src/app/services/parent.service';
 import { NewCareDialog } from './dialogs/new-care-dialog/new-care-dialog';
 import { NewParentDialog } from './dialogs/new-parent-dialog/new-parent-dialog';
 import * as check from 'check-types';
+import { CareService } from 'src/app/services/care.service';
+import { ICare } from 'src/app/models/care.model';
 
 @Component({
   selector: 'app-options-bar',
@@ -16,6 +18,7 @@ export class OptionsBarComponent {
   constructor(
     public dialog: MatDialog,
     private parentService: ParentService,
+    private careService: CareService,
     private snackBar: MatSnackBar
   ) {}
 
@@ -35,13 +38,13 @@ export class OptionsBarComponent {
     });
 
     dialogRef.afterClosed().subscribe((parentInfo) => {
-      if (check.assigned(parentInfo) && check.not.emptyString(parentInfo)) {
+      if (check.assigned(parentInfo)) {
         this.createParent(parentInfo);
       }
     });
   }
 
-  async createParent(parentInfo) {
+  async createParent(parentInfo: IParent) {
     try {
       await this.parentService.createParent(parentInfo);
       this.openSnackBar('Creado correctamente', 'Close');
@@ -56,9 +59,22 @@ export class OptionsBarComponent {
       data: this.parentsList,
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe((careInfo) => {
+      if (check.assigned(careInfo) && !check.emptyObject(careInfo)) {
+        this.createCare(careInfo);
+      }
       console.log('The dialog was closed');
     });
+  }
+
+  async createCare(careInfo: ICare) {
+    try {
+      await this.careService.createCare(careInfo);
+      this.openSnackBar('Creado correctamente', 'Close');
+      this.fetchData();
+    } catch {
+      this.openSnackBar('Error en la creación', 'Close');
+    }
   }
 
   //open a snackBar on top with the message given
