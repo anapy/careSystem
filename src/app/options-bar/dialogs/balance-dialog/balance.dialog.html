@@ -3,7 +3,8 @@
   <mat-dialog-content>
     <mat-list role="list" *ngFor="let balance of balanceList | keyvalue" class="bd-list-container">
       <mat-list-item role="listItem">
-        {{balance.key}}: {{transformMinute(balance.value)}}
+        <span class="bd-data-key">{{balance.key}}:</span>
+        <span class="bd-data-value"[class.bd-positive-number]="(balance.value > 0)" [class.bd-negative-number]="(balance.value < 0)">{{transformMinute(balance.value)}}</span>
       </mat-list-item>
     </mat-list>
   </mat-dialog-content>

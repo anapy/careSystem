@@ -56,9 +56,9 @@ export class BalanceDialog implements OnInit {
   }
 
   transformMinute(value: number): string {
-    let hours = Math.floor(value / 60);
+    let hours = Math.floor(Math.abs(value) / 60);
     let minutes = Math.abs(Math.floor(value % 60));
-    return hours + ' hrs ' + minutes + ' mins';
+    return value < 0 ? ` - ${hours} hrs ${minutes} mins` : ` ${hours} hrs ${minutes} mins`;
   }
 }
 
