@@ -5,7 +5,7 @@
       <p>Cuidador/a: {{ care.careTakerName }}</p>
     </div>
     <div class="cc-data">
-      <p>Fecha del servicio: {{ care.startDate | date }}</p>
+      <p>Fecha del servicio: {{ care.startDate | date:'dd/MM/yyyy hh:mm a' }}</p>
       <p>Duración: {{ transformMinute(care.duration) }}</p>
     </div>
   </div>

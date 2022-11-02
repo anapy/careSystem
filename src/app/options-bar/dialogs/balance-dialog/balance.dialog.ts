@@ -5,7 +5,6 @@ import { ICare } from 'src/app/models/care.model';
 import * as check from 'check-types';
 import * as _ from 'lodash';
 
-
 @Component({
   selector: 'app-balance.dialog',
   templateUrl: './balance.dialog.html',
