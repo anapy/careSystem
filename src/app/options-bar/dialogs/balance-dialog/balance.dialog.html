@@ -1,3 +1,11 @@
-<div>
-  Soy el balance
+<div *ngIf="balanceList" class="bd-container">
+  <p mat-dialog-title>Balance de cuidados</p>
+  <mat-dialog-content>
+    <mat-list role="list" *ngFor="let balance of balanceList | keyvalue" class="bd-list-container">
+      <mat-list-item role="listItem">
+        {{balance.key}}: {{transformMinute(balance.value)}}
+      </mat-list-item>
+    </mat-list>
+  </mat-dialog-content>
+  <button mat-raised-button mat-dialog-close class="bd-dialog-actions">Cerrar</button>
 </div>

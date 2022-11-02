@@ -24,6 +24,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NewCareDialog } from 'src/app/options-bar/dialogs/new-care-dialog/new-care.dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
+import { BalanceDialog } from 'src/app/options-bar/dialogs/balance-dialog/balance.dialog';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     CareListComponent,
     OptionsBarComponent,
     NewParentDialog,
-    NewCareDialog
+    NewCareDialog,
+    BalanceDialog
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatListModule
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'es-ES'}],
   bootstrap: [AppComponent],

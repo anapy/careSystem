@@ -1,13 +1,14 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IParent } from 'src/app/models/parent.model';
 import { ParentService } from 'src/app/services/parent.service';
 import { NewCareDialog } from './dialogs/new-care-dialog/new-care.dialog';
 import { NewParentDialog } from './dialogs/new-parent-dialog/new-parent.dialog';
-import * as check from 'check-types';
+import { BalanceDialog } from 'src/app/options-bar/dialogs/balance-dialog/balance.dialog';
 import { CareService } from 'src/app/services/care.service';
 import { ICare } from 'src/app/models/care.model';
+import * as check from 'check-types';
 
 @Component({
   selector: 'app-options-bar',
@@ -23,6 +24,7 @@ export class OptionsBarComponent {
   ) {}
 
   @Output() createNewCare: EventEmitter<void> = new EventEmitter<void>();
+  @Input() careList: Array<ICare>;
   parentsList: Array<IParent>;
 
   ngOnInit(): void {
@@ -63,6 +65,12 @@ export class OptionsBarComponent {
       if (check.assigned(careInfo) && !check.emptyObject(careInfo)) {
         this.createCare(careInfo);
       }
+    });
+  }
+
+  showBalance() {
+    this.dialog.open(BalanceDialog, {
+      data: this.careList
     });
   }
 

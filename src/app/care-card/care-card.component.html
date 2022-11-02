@@ -6,7 +6,7 @@
     </div>
     <div class="cc-data">
       <p>Fecha del servicio: {{ care.startDate | date }}</p>
-      <p>Duration: {{ care.duration }}</p>
+      <p>Duración: {{ transformMinute(care.duration) }}</p>
     </div>
   </div>
   <p>Descripción/Observaciones: {{ care.observations }}</p>

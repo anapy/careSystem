@@ -1,0 +1,19 @@
+.bd-container {
+  width: 600px;
+  height: 600px;
+  position: relative;
+}
+
+.bd-dialog-actions {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.bd-positive-number {
+  color: red;
+}
+
+.bd-negative-number {
+  color: green;
+}
