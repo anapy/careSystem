@@ -49,8 +49,6 @@ export class BalanceDialog implements OnInit {
         this.balanceList[key] = (this.parentsDebs[key] * - 1);
       }
     });
-    console.log('balance', this.balanceList);
-    debugger;
   }
 
   saveCare() {
