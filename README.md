@@ -64,7 +64,8 @@ ngx-material-timepicker para el seleccionable de la hora
 Algunos puntos que faltarían implementar serían:
 - El simulador de horas para que todos los padres queden a 0.
 - Detalles en los formularios que muestren información sobre los errores(required, min, max, cuidador vs padre...).
-- Interfaz de usuario con filtros por padres o cuidadores
+- Interfaz de usuario con filtros por padres o cuidadores.
+- Paginación en la página principal.
 
 Algunos de los inconvenientes que he encontrado en la prueba ha sido la falta de backend, dado que en él se haría gran parte de la lógica. De hecho en el caso del post de care, a pesar de que en el swagger no se incluye el nombre del progenitor ni el del cuidador, he decidido incluirlo en el body de la llamada, ya que al hacer uso de MockApi si enviaba esa información vacía el resultado no se completaba, otra opción factible hubiera sido hacer el cruce de información ya en el frontend al traer padres y cuidados, sin embargo de esta forma resultaba más limpia, aún duplicando información en el mockeo de datos.
 
