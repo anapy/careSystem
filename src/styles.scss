@@ -7,3 +7,10 @@ body {
   background-color: #e5e5e5;
 }
 
+.timepicker-overlay {
+    z-index: 10000000 !important;
+}
+
+.timepicker-backdrop-overlay {
+    z-index: 10000000 !important;
+}

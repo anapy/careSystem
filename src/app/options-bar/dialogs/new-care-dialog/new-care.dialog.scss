@@ -4,6 +4,12 @@
   position: relative;
 }
 
+.ncd-date-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 .ncd-form-container {
   display: flex;
   flex-direction: column;
@@ -17,4 +23,8 @@
   position: absolute;
   bottom: 0px;
   right: 0px;
+}
+
+.ncd-date, .ncd-time {
+  width: 47%;
 }

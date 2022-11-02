@@ -3,7 +3,7 @@
     <mat-dialog-content class="ncd-form-container">
       <mat-form-field appearance="fill">
         <mat-label aria-required="true">Nombre Padre/Madre</mat-label>
-        <mat-select [(ngModel)]="careInfo.parent" (selectionChange)="validateForm()" #nameControl="ngModel">
+        <mat-select [(ngModel)]="careInfo.parent" (selectionChange)="validateForm()" #nameControl="ngModel" [value]="careInfo.parent" required="true">
           <mat-option *ngFor="let parent of parentsList" [value]="parent">
             {{parent.name}}
           </mat-option>
@@ -11,25 +11,32 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label aria-required="true">Nombre cuidador/a</mat-label>
-        <mat-select [(ngModel)]="careInfo.care" (selectionChange)="validateForm()">
+        <mat-select [(ngModel)]="careInfo.care" (selectionChange)="validateForm()" [required]="true" [value]="careInfo.care">
           <mat-option *ngFor="let parent of parentsList" [value]="parent">
             {{parent.name}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Fecha</mat-label>
-        <input matInput [matDatepicker]="picker" [(ngModel)]="careInfo.startDate" [value]="careInfo.startDate" (ngModelChange)="validateForm()">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+      <div class="ncd-date-time">
+        <mat-form-field appearance="fill" class="ncd-date">
+          <mat-label  aria-required="true">Fecha</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="careInfo.startDate" [value]="careInfo.startDate" (ngModelChange)="validateForm()" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      <mat-form-field appearance="fill" class="ncd-time">
+        <mat-label aria-required="true">Hora</mat-label>
+        <input matInput class="timepicker-overlay" [(ngModel)]="careInfo.time" [value]="careInfo.time" (ngModelChange)="validateForm()" required [ngxTimepicker]="timePicker">
+        <ngx-material-timepicker class="timepicker-backdrop-overlay" #timePicker format="24"></ngx-material-timepicker>
       </mat-form-field>
+      </div>
       <mat-form-field>
-        <mat-label aria-required="true">Duración</mat-label>
-        <input matInput [(ngModel)]="careInfo.duration" [value]="careInfo.duration" type="number" required="true" (change)="validateForm()"/>
+        <mat-label aria-required="true">Duración en minutos</mat-label>
+        <input matInput [(ngModel)]="careInfo.duration" [value]="careInfo.duration" type="number" min="1" max="720" required="true" (change)="validateForm()"/>
       </mat-form-field>
         <mat-form-field>
         <mat-label aria-required="true">Observaciones</mat-label>
-        <input matInput [(ngModel)]="careInfo.observations" [value]="careInfo.observations" type="text" required="true" (change)="validateForm()"/>
+        <input matInput [(ngModel)]="careInfo.observations" [value]="careInfo.observations" type="text" required="true" (keyup)="validateForm()"/>
       </mat-form-field>
   </mat-dialog-content>
   <div mat-dialog-actions class="ncd-dialog-actions">

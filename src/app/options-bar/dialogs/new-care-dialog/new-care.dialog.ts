@@ -1,6 +1,5 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ICare } from 'src/app/models/care.model';
 import * as check from 'check-types';
 import { IParent } from 'src/app/models/parent.model';
 
@@ -20,13 +19,14 @@ export class NewCareDialog {
   careInfo: any = {
     careTakerId: '',
     careTakerName: '',
-    duration: 0,
+    duration: null,
     observations: '',
     parentId: '',
     parentName: '',
     startDate: '',
     care: {},
-    parent: {}
+    parent: {},
+    time: ''
   };
   isDataValid: boolean = false;
   repeatCareParent: boolean = false;
@@ -36,7 +36,7 @@ export class NewCareDialog {
   }
 
   public validateForm(): void {
-    if (check.emptyObject(this.careInfo.careTakerId) || check.emptyObject(this.careInfo.parentId) || check.lessOrEqual(this.careInfo.duration, 0) || check.emptyString(this.careInfo.observations) || !check.assigned(this.careInfo.startDate)) {
+    if (check.emptyObject(this.careInfo.careTakerId) || check.emptyObject(this.careInfo.parentId) || !check.assigned(this.careInfo.duration && check.lessOrEqual(this.careInfo.duration, 0)) || check.emptyString(this.careInfo.observations) || !check.assigned(this.careInfo.startDate) || check.emptyString(this.careInfo.time)) {
       this.isDataValid = false;
     } else if (this.careInfo.care.id === this.careInfo.parent.id) {
       this.isDataValid = false;
@@ -56,6 +56,12 @@ export class NewCareDialog {
     this.careInfo.careTakerName = this.careInfo.care.name;
     delete this.careInfo.care;
 
+    //Second save the time together with date
+    const matches = this.careInfo.time.toLowerCase().match(/(\d{1,2}):(\d{2}) ([ap]m)/);
+    const hours = (parseInt(matches[1]) + (matches[3] == 'pm' ? 12 : 0));
+    const minutes = matches[2]
+    this.careInfo.startDate.setHours(hours, minutes);
+    delete this.careInfo.time;
     this.dialogRef.close(this.careInfo);
   }
 }

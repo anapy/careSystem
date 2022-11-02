@@ -1,6 +1,5 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { IParent } from 'src/app/models/parent.model';
 import { ICare } from 'src/app/models/care.model';
 import * as check from 'check-types';
 import * as _ from 'lodash';

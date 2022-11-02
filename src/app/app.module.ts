@@ -26,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BalanceDialog } from 'src/app/options-bar/dialogs/balance-dialog/balance.dialog';
 import { MatListModule } from '@angular/material/list';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { MatListModule } from '@angular/material/list';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatListModule
+    MatListModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'es-ES'}],
   bootstrap: [AppComponent],
